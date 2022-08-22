@@ -37,7 +37,7 @@ export default function Home() {
           <MealCard />
         </div>
         <p className='font-bold text-lg pt-4 pb-2'>Today I ate</p>
-        <div className='mx-auto max-w-md space-y-3'>
+        <div className='max-w-md space-y-3'>
           <MealCardHorizontal />
           <MealCardHorizontal />
           <MealCardHorizontal />
