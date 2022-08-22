@@ -28,7 +28,7 @@ export default function Home() {
           <SearchIcon className='w-6 h-6 text-gray-500' />
           <input className='w-full px-4 py-3 text-gray-900 focus:outline-none placeholder-gray-500' type='text' placeholder='Quick Add' onChange={(e) => setMeal(e.target.value)} />
         </div>
-        <p className='font-bold text-lg pt-2'>Today's meal plan</p>
+        <p className='font-bold text-lg pt-2'>Today{"'"}s meal plan</p>
         <MealCategory />
         <div className='flex md:grid md:grid-cols-3 xl:grid-cols-4 gap-3 overflow-x-auto overflow-y-visible p-4 -mx-4'>
           <MealCard />
