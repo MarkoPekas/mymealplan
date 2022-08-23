@@ -10,14 +10,15 @@ import MealCategory from '../components/MealCategory'
 import MealCardHorizontal from '../components/MealCardHorizontal'
 import LoginButton from '../components/next-auth/LoginButton'
 import { useSession } from 'next-auth/react'
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import AddMeal from '../components/AddMeal'
+import { useTransform } from 'framer-motion'
 
 
 export default function Home(props) {
+  const { scrollYProgress } = useScroll();
   const [todaysMeals, setTodaysMeals] = useState([])
   const { data: session } = useSession()
-  const ref = useRef()
 
   useEffect(() => {
     if(session?.id)
@@ -30,8 +31,22 @@ export default function Home(props) {
     })
   }, [session])
   console.log(todaysMeals)
+  console.log(scrollYProgress)
   return (
-    <div className='bg-[url("/backdrop.svg")] bg-[length:100%]'>
+    <div className=''>
+      <motion.div style={{
+        top: useTransform(scrollYProgress, [0, 1], [0, -200]),
+      }} className='fixed top-0 left-0 h-[150vh] w-full -z-10'>
+        <div className='relative w-full h-full'>
+          <Image
+            src='/backdrop.svg'
+            alt='background'
+            layout='fill'
+            objectFit='cover'
+            priority
+          />
+        </div>
+      </motion.div>
       <Head>
         <title>My Meal Plan</title>
         <link rel="icon" href="/favicon.ico" />

@@ -2,7 +2,7 @@ import { XCircleIcon } from "@heroicons/react/outline";
 
 const MealCardHorizontal = ({meal}) => {
     return (
-        <div className='flex items-center shadow-lg md:shadow px-4 py-2 gap-3 rounded-md'>
+        <div className='flex items-center shadow-lg md:shadow px-4 py-2 gap-3 rounded-md bg-white'>
             <div className='rounded-full w-12 h-12 relative overflow-hidden'>
               <img src='https://www.themealdb.com/images/media/meals/tnwy8m1628770384.jpg' alt='breakfast' />
             </div>

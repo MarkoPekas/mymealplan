@@ -35,7 +35,7 @@ const AddMeal = ({session, setData}) => {
         },
       }
     return (
-        <div className='shadow-xl md:shadow-md rounded-xl flex items-center px-4 my-2'>
+        <div className='shadow-xl md:shadow-md rounded-xl flex items-center px-4 my-2 bg-white'>
           <SearchIcon className='w-6 h-6 text-gray-500' />
           <input ref={ref} className='w-full px-4 py-3 text-gray-900 focus:outline-none placeholder-gray-500' type='text' placeholder='Quick Add' onChange={(e) => setMeal(e.target.value)} />
           <motion.button
