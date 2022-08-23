@@ -2,7 +2,7 @@ import { prisma } from "../../../../utils/prisma"
 
 export default async function handler(req, res) {
     const { user } = req.query
-
+    console.log(user)
     const meals = await prisma.calorie.findMany({
         where: {
             userId: user,

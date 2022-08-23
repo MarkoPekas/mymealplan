@@ -20,6 +20,7 @@ export default function Home(props) {
   const ref = useRef()
 
   useEffect(() => {
+    if(session?.id)
     axios.get(`/api/get/meals/today`, {
       params: {
         user: session?.id
@@ -27,7 +28,7 @@ export default function Home(props) {
     }).then(res => {
       setTodaysMeals(res.data.data)
     })
-  }, [])
+  }, [session])
   console.log(todaysMeals)
   return (
     <div>
