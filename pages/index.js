@@ -68,7 +68,7 @@ export default function Home(props) {
           <MealCard />
         </div>
         <p className='font-bold text-lg pt-4 pb-2'>Today I ate</p>
-        <div className='max-w-md space-y-3 flex flex-col-reverse'>
+        <div className='max-w-md flex flex-col-reverse'>
           {todaysMeals.map((meal, index) => {
             return (
               <MealCardHorizontal meal={meal} key={index} />
