@@ -95,7 +95,7 @@ const Recipe = (props) => {
                             )}
                         <table>
                         {selected === 'Ingredients' && ingredients.map((item, i) => (
-                            <tr>
+                            <tr key={i}>
                                 <td>{item.amount}</td>
                                 <td>{item.name}</td>
                             </tr>
