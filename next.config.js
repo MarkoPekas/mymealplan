@@ -1,11 +1,11 @@
-const withPWA = require("next-pwa");
+const withPWA = require('next-pwa')({
+  dest: 'public'
+})
 
 module.exports = withPWA({
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-  },images: {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
     domains: ['www.themealdb.com'],
   },
-});
+})
