@@ -35,7 +35,7 @@ export default function Home(props) {
   return (
     <div className=''>
       <motion.div style={{
-        top: useTransform(scrollYProgress, [0, 1], [0, -200]),
+        top: useTransform(scrollYProgress, [0, 1], [0, -100]),
       }} className='fixed top-0 left-0 h-[150vh] w-full -z-10'>
         <div className='relative w-full h-full'>
           <Image
