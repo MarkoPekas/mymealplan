@@ -49,6 +49,7 @@ export default function Home(props) {
       </motion.div>
       <Head>
         <title>My Meal Plan</title>
+        <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='max-w-7xl mx-auto p-4 pt-16'>
