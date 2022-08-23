@@ -17,4 +17,5 @@ const MealCardHorizontal = ({meal}) => {
     )
 }
 
+
 export default MealCardHorizontal;
