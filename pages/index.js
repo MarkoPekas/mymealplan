@@ -44,7 +44,7 @@ export default function Home(props) {
           <motion.button
           initial={{ width: '0px' }}
           animate={{ width: meal===''?'0px':'auto' }}
-          className='rounded-md font-medium text-white bg-blue-500 whitespace-nowrap'
+          className='rounded-md font-medium text-white bg-blue-500 whitespace-nowrap overflow-hidden'
           onClick={() => {
             if(meal!==''){
               console.log({
