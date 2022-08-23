@@ -11,10 +11,10 @@ import MealCardHorizontal from '../components/MealCardHorizontal'
 import LoginButton from '../components/next-auth/LoginButton'
 import { useSession } from 'next-auth/react'
 import { motion } from 'framer-motion'
+import AddMeal from '../components/AddMeal'
 
 
 export default function Home(props) {
-  const [meal, setMeal] = useState("")
   const [todaysMeals, setTodaysMeals] = useState([])
   const { data: session } = useSession()
   const ref = useRef()
@@ -38,32 +38,11 @@ export default function Home(props) {
       <div className='max-w-7xl mx-auto p-4 pt-16'>
         <p className='text-gray-500'>Delicious</p>
         <p className='text-gray-900 text-2xl md:text-4xl font-bold'>Hey There, {session?.user?.name}</p>
-        <div className='shadow-xl md:shadow-md rounded-xl flex items-center px-4 my-2'>
-          <SearchIcon className='w-6 h-6 text-gray-500' />
-          <input ref={ref} className='w-full px-4 py-3 text-gray-900 focus:outline-none placeholder-gray-500' type='text' placeholder='Quick Add' onChange={(e) => setMeal(e.target.value)} />
-          <motion.button
-          initial={{ width: '0px' }}
-          animate={{ width: meal===''?'0px':'auto' }}
-          className='rounded-md font-medium text-white bg-blue-500 whitespace-nowrap overflow-hidden'
-          onClick={() => {
-            if(meal!==''){
-              console.log({
-                meal: meal,
-                user: session?.id
-              })
-              axios.post('/api/add/meal', {
-                meal: meal,
-                user: session?.id
-              }).then(res => {
-                setMeal('')
-                ref.current.value = ''
-              }).catch(err => {
-                console.log(err)
-              })
-            }
-          }}
-          ><p className='px-4 py-2'>Add Meal</p></motion.button>
-        </div>
+        <AddMeal session={session} setData={(data) => {
+          setTodaysMeals([
+            ...todaysMeals,
+            ...data])
+        }} />
         <p className='font-bold text-lg pt-2'>Today{"'"}s meal plan</p>
         <MealCategory />
         <div className='flex md:grid md:grid-cols-3 xl:grid-cols-4 gap-3 overflow-x-auto overflow-y-visible p-4 -mx-4'>
@@ -73,7 +52,7 @@ export default function Home(props) {
           <MealCard />
         </div>
         <p className='font-bold text-lg pt-4 pb-2'>Today I ate</p>
-        <div className='max-w-md space-y-3'>
+        <div className='max-w-md space-y-3 flex flex-col-reverse'>
           {todaysMeals.map((meal, index) => {
             return (
               <MealCardHorizontal meal={meal} key={index} />
