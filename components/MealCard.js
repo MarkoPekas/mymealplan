@@ -1,10 +1,12 @@
 import { CheckCircleIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 import { useState } from "react";
 
 const MealCard = (props) => {
     const [checked, setChecked] = useState(false);
     return (
-        <div className='w-[33vw] md:w-full flex-shrink-0 md:p-4 p-2 shadow-lg rounded-md flex flex-col'>
+      <Link href='/recipe'>
+        <div className='w-[33vw] md:w-full flex-shrink-0 md:p-4 p-2 shadow-lg rounded-md flex flex-col cursor-pointer'>
             <div className='flex w-full justify-end py-2' onClick={() => setChecked(!checked)}>
               <CheckCircleIcon className={`w-6 h-6 ${checked?'text-red-500':'text-gray-500'}`} />
             </div>
@@ -13,6 +15,7 @@ const MealCard = (props) => {
             </div>
             <p className='md:text-xl text-lg font-medium pt-2'>Croatian Bean Stew</p>
         </div>
+      </Link>
     )
 }
 
