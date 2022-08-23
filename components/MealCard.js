@@ -6,8 +6,8 @@ const MealCard = (props) => {
     const [checked, setChecked] = useState(false);
     return (
       <Link href='/recipe'>
-        <div className='w-[33vw] md:w-full flex-shrink-0 md:p-4 p-2 shadow-lg rounded-md flex flex-col cursor-pointer'>
-            <div className='flex w-full justify-end py-2' onClick={() => setChecked(!checked)}>
+        <div className='w-[33vw] bg-white md:w-full flex-shrink-0 md:px-4 p-2 shadow-lg rounded-md flex flex-col cursor-pointer'>
+            <div className='flex w-full justify-end pb-2' onClick={() => setChecked(!checked)}>
               <CheckCircleIcon className={`w-6 h-6 ${checked?'text-red-500':'text-gray-500'}`} />
             </div>
             <div className='aspect-square rounded-xl overflow-hidden relative'>

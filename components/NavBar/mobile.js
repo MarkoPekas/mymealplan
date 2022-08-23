@@ -6,7 +6,7 @@ const variants = {
     home: <>
     <MenuAlt2Icon className='w-6 h-6 text-gray-500 md:hidden' />
     <div className="hidden md:flex items-center gap-3">
-        <p className="font-black text-xl">TheMeal</p>
+        <p className="font-black text-xl text-white">TheMeal</p>
         <a className="text-gray-500 cursor-pointer"></a>
     </div>
     <div className="flex gap-3">
